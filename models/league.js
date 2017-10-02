@@ -1,4 +1,5 @@
 'use strict';
+var Sequelize = require("sequelize");
 
 module.exports = function(sequelize, Sequelize) {
 	var League = sequelize.define("League", {
@@ -9,6 +10,7 @@ module.exports = function(sequelize, Sequelize) {
 	});
 	League.associate = function(models) {
 		League.hasMany(models.Teams);
+		League.hasMany(models.Players);
 	}
 	return League;
 };
